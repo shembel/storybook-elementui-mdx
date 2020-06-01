@@ -1,0 +1,17 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks'
+import MyElementButton from './MyElementButton'
+
+<Meta title="ElementUI Button Docs" component={MyElementButton} />
+
+# ElementUI button example Docs
+
+Some MDX docs for the `MyElementButton` component.
+
+<Preview>
+  <Story name="Basic MDX">
+    {{ 
+      components: { MyElementButton },
+      template: `'<MyElementButton @click="action">ElementUI Button</MyElementButton>'`
+    }}
+  </Story>
+</Preview>
