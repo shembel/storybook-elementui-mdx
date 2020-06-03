@@ -1,0 +1,16 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks'
+import Button from './Button'
+
+<Meta title="Components/Basic/Button" component={Button} />
+
+# Button
+
+
+<Preview>
+  <Story name="Basic MDX">
+    {{ 
+      components: { Button },                     
+      template: '<Button @click="action" :type="type">Default</Button>'
+    }}
+  </Story>
+</Preview>
