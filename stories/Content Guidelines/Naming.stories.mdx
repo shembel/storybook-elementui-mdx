@@ -1,4 +1,7 @@
-<Meta title="Content Guidelines/Naming"/>
+import CBButton from '../Components/Basic/CBButton/CBButton'
+import { Meta  } from '@storybook/addon-docs/blocks';
+
+<Meta title="Content Guidelines/Naming" component={CBButton}/>
 
 # Naming
 
@@ -13,20 +16,19 @@ When developing new screens with UI elements that contain texts like menu or lis
 These rules are valid for all Odin Control Panels, including CCPv2, CCPv1, PCP and RCP
 
 ## Buttons and Links Labels
-Label interface buttons and separate links (not included into the text) in accordance with tasks the users will need to accomplish. Present all labels in active voice and imperative mood (infinitive forms of verbs).
+Label interface Buttons and separate links (not included into the text) in accordance with tasks the users will need to accomplish. Present all labels in active voice and imperative mood (infinitive forms of verbs).
 
-Capitalize captions for buttons and links in book title style. Use no ending punctuation.
+Capitalize captions for Buttons and links in book title style. Use no ending punctuation.
 
 Example:
 > Add Reseller
 
-For submit buttons in forms try to avoid generic labels, such as «OK», «Submit» etc.  
-Use brief but meaningful text that explains what happens after the users clicks this button.  
+For submit Buttons in forms try to avoid generic labels, such as «OK», «Submit» etc.  
+Use brief but meaningful text that explains what happens after the users clicks this CBButton.  
 
 Do not use "(s)" or "(es)" after nouns to indicate singular or plural. Use the plural if there is a possibility of more than one. For example, Add Selected Plans, not ~~Add Selected Plan(s)~~.
 
 Examples:
-![](Naming-submit-button.png)
 
 ## Links in the Text
 If you have a hyperlink that follows some explanatory or introductory text in the GUI, treat such links as usual sentences: capitalize the first word and put a period at the end (and period should not be included into the link).
