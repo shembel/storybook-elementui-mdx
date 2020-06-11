@@ -1,0 +1,19 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks'
+import CBButton from './CBButton'
+
+<Meta title="4 - Components/Basic/CBButton" component={CBButton} />
+
+# CBButton
+
+
+<Preview>
+  <Story name="Default">
+    {{ 
+      components: { CBButton },                     
+      template: '<CBButton :type="danger">Default</CBButton>'
+    }}
+  </Story>
+  <Story name="Danger">
+      <CBButton>Danger</CBButton>
+  </Story>
+</Preview>

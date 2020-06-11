@@ -1,0 +1,200 @@
+<Meta title="6 - Content Guidelines/Data Formats"/>
+
+# Data Formats
+
+## Address
+Address may contain following parts:
+* Address Line 1 – should contain street name and building number
+* Address Line 2 (optional) – additional info for detect of the address (floor number, apartment number etc.)
+* City
+* State (optional) – should be filled for countries where State is required part of an address (e.g. for USA)
+* Zip Code
+* Country
+
+Format of output is depends on filled parts of address and on regional settings of user.  
+For detailed information for different cases about address formatting read [this article](https://en.wikipedia.org/wiki/Address_(geography)#Address_format).
+
+For simplifying in the wireframes and mockups we always use the following notation (USA notation):  
+
+<img src="./images/content-guidelines/data-formats/address.png" width="715"/>
+
+## Date/Time
+Date format actually depends of user's country, but on wireframes we are using following formats:
+- **Aug 21, 2015 10:23 PM** for cases when need to show user detalized info
+- **Aug 21, 2015** when no need to display info about hours and/or minutes
+
+For more details about data formatting by country read [this article](https://en.wikipedia.org/wiki/Date_format_by_country)  
+_That article describing varius formats for different countries, but if for one country presented 2 formats: long and short – always choose a **short** format_.
+
+### Restrictions and Exceptions
+We don't support following date formatting variants: 
+* **Aug 21** – not clear what the year is this
+* **10:23 PM** – not clear what the date is this
+* **etc...** – anyway, for all cases – date and time representation should always gives a full information about when something happened (including year, month, date, hours and minutes)
+
+
+But, here is some exceptions, when usage of short date allowed.  
+For some cases date and time output may be changed and be different from 2 main formats described in the "Overview" section
+* **Aug 21** – available to use on some types of charts, e.g. Calnedar Charts or for any other cases where adding of Year may make reading experience harder. In this case you *must* provide full information adout date by other way. For example – if you use short dates on your chart – you must show full data by hover on each value on the chart.
+* **10:23 PM** – the same as previous item – but may be used for shorter intervals, e.g. when we displaying chart of using some resource for one day.
+* **For all extentions listed above** – note, that these notations only acceptable for cases when more detailed format may harm UX. Be sure, that you provide user to see full data by other way: by hover or in the tilte of the section where you type any dates.
+
+## Phone Numbers
+Phone numbers usually uses in user's card, for payment details and for contact with someone.  
+Inspite of the fact that we allow users to enter phone numbers in various formats ([read more](/ui-kit/inputs/phonenumber)) - displaying of already entered phone numbers are strictly formalized.
+
+There 2 main things you should know about displaying of the phone numbers: how they displaying in the mockups and how in the implementation.  
+Start with overview of displaying phone numbers in the implementation.
+
+### On Real Screens
+There are many international conventions about formatting of the phone numbers.  
+You can find more information about formatting of phone numbers in different countries [here](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)
+
+Inspite of phone numbers may be an active link (a link with te:// protocol) - we don't support this behavior and strongly recommend to display phone numbers as plain text.
+
+### On Wireframes
+As we talk above, in the world exists many different notations for phone numbers, and to simplify our mockups we always use only one notation, with country code, location code and the phone number as is. See example below:
+
+<img src="./images/content-guidelines/data-formats/phonenumber.png" width="500"/>
+
+Phone number from the example above consists of floowing parts:
+ 
+* Contry Code: +1    
+code displayed in the inpernational open format, with a "+" sign
+* Location Code: (123)    
+code of city, town or any location where number is registered. Location code should be wrapped by "(" and ")" chars and separated from sibling parts by spaces.
+* Phone: 456-78-90    
+number of specified abonent, should be divided by "-" chars    
+* Extention: ext. 123    
+optional part, displayed only for numbers that used for internal company numbers or something like; should be separated by "ext." special phrase
+
+## Object List
+### Listing Objects inside the text
+Texts mentioning actions performed on more than 1 object should conform to following rules: 
+1. If there are less than or equal to 4 objects, all of them should be displayed. Conjucntion "and" should be used before the last one:    
+_Select licenses to unassign for Samantha Smith, Emily Braun, Andrew Black and Liza Smith._
+2. If there are more than 4 objects, only the first 3 should be named and the rest should be hidden behind the shortcut “and X more objects”:     
+_Select licenses to unassign for Samantha Smith, Emily Braun, Andrew Black and 2 more users_
+
+## Money
+### Overview
+Currency is one of the most common pieces in the panels, dashboards and other screens. It using for displaying of amount of invoices, taxes etc.  
+In our mockups we use USD currency format as standard, and it looks like this in most cases.  
+
+<img src="./images/content-guidelines/data-formats/moneyoverview.png" width="210"/>
+
+### Notation
+In practice currency format may be very different for various countires. Read [this article](https://en.wikipedia.org/wiki/ISO_4217) to get more details of currency format in different countries.
+### Recomendations
+Here is some recommendations for currency formatting that can help you:
+### Rounding
+Commonly, currencies are calculated automatically, and as result final currency may be not an integer.   
+For example, if you calculating a price for 1 month period basing on its year value, it may looks like this:  
+_Price per year: $ 126.98_  
+_Price per year: $ 126.98_   
+_Price per month: $ 126.98 / 12 = $10.5816666666_  
+
+As resulted value doesn't looks good we need to format it with some precision.  
+It may be any number of digits after "." sign, but we recommend to use 2 chars.  
+ 
+In this case price per month should be displayed as:  
+_Price per month: $10.59_
+
+Take into your consideration that we rounding the currency to the greater (10.59, not 10.58)
+
+**Important notice**  
+If you propose user to compare some items, and some of them has a the fractional part and other not - you should add a fractional part to the items that hasn't it. It will be looks like this:
+
+_Price per year: $ 127.00_  
+_Price per month: $ 10.59_  
+
+### Aligning
+When you needed to place some prices one under one, you should align them by decimal dot. It means that natural part should be aligned at right, and fractional part should be aligned at left.  
+See example below:  
+
+<img src="./images/content-guidelines/data-formats/moneyalign.png" width="500"/>
+
+## Email Address
+### Overview
+Email addresses usually used for 2 main purposes:
+ * As an email address as is
+* As login for NextCP or for any of panel's services
+
+To avoid possible misunderstanding we recommend always use this term - "Email Address", not just "Email". We recommend it because the term "Email" offten using for word for email as service, or letter, message etc. At the same time - term "Email Address" doesn't allow to confuse this term with something else.
+ 
+In general email address consists of following parts:
+* First part contains user name
+* Then follows divider - "@" sign
+* And the last part - domain part
+
+Read more about these parts below.
+
+### Email Address Parts
+
+<img src="./images/content-guidelines/data-formats/emailaddress.png" width="500"/>
+
+In real life email addresses has a complex specification (RFC), allowing very different notations, like this:
+* someone@example.com
+* some.one@domain
+* коекто@пример.рф
+* etc...
+
+But for simplifying, in the mockups, we always follows this rules for displaying email addresses:
+
+**User Name**  
+Usually consists of some latin letters or digits, separated but "." or "-". Good practice is to start email address with a letter in a lower case. Also we recommend to follow logic in automatic generating of username parts: get first letter of user's name and concatenate it with his surname: "ssmith" for Samantha Smith, "ebrown" for Emily Brown etc.
+
+**@**  
+There no any special recommendations, just don't forget to use that characher between first and last parts of an email address )
+
+**Domain Part**  
+Usually domain part is just an address of a service where email address is using. It may be presented as first-level domain, or 2-nd or 3-rd level domains: mysite.com, flowerstore.serviceprovider.com etc...
+
+## IP Address
+There are 2 types of IP Address notation:
+* IPv4 Address
+* IPv6 Address
+
+Both of it may be used for displaying of an address, type of IP selected by provider.
+
+### IPv4 Address
+In the real world exists many ways to display IPv4 addresses: by 4 octets, by HEX numbers etc.  
+But in our mockups we using only following notation with 4 octets, separated by dots:
+ 
+**127.0.0.1**
+
+If you need to specify some port, you should place it in the end of the address and separate it by *":"*:
+ 
+**127.0.0.1:8080**
+
+### IPv6 Address
+In the real world also exists many ways to display IPv6 addresses too, but in our mockups we using only following notation with 8 octets, separated by *:* char:
+ 
+**2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d**
+
+If you need to specify some port, you should wrap whole address into *[ ... ]* square brackets and place a port number after the closing bracket with a *:* before the number:
+ 
+**[2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d]:8080**
+
+
+## Prices
+### Price per Period
+The valid format is "price/period"
+<span style={{ color: 'green' }} >$19.99/month</span> <br/>
+<span style={{ color: 'green' }}>$19.99/6 months</span>
+
+Other formats are wrong, such as "price per period", "price for period".  
+<span style={{ color: 'red' }}>$19.99 per Year</span> <br/>
+<span style={{ color: 'red' }}>$19.99 for year</span>
+
+### Price per Unit and Period
+The valid format is "price/unit per period". <span style={{ color: 'green' }}>$19.99/GB per month</span>  
+
+Other formats are wrong.
+<span style={{color:'red'}}>$19.99/GB/Month</span> <br/>
+<span style={{color:'red'}}>$19.99 per GB per Month</span>
+
+
+
+
+
