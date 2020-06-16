@@ -26,6 +26,8 @@
     "@storybook/vue": "^5.3.19",
     "@vue/babel-preset-app": "^4.4.1",
     "babel-loader": "^8.1.0",
-    "babel-preset-vue": "^2.0.2"
+    "babel-preset-vue": "^2.0.2",
+    "react": "16.13.1",
+    "react-is": "16.13.1"
   }
 }

@@ -1,7 +1,8 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks'
-import CBButton from './CBButton'
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import CBButton from './CBButton';
+import Example from './example.vue';
 
-<Meta title="4 - Components/Basic/CBButton" component={CBButton} />
+<Meta title="4 - Components/Basic/CBButton" component={CBButton, Example} />
 
 # CBButton
 
@@ -10,10 +11,25 @@ import CBButton from './CBButton'
   <Story name="Default">
     {{ 
       components: { CBButton },                     
-      template: '<CBButton :type="danger">Default</CBButton>'
+      template: '<CBButton type="default">Default</CBButton>'
+    }}
+  </Story>
+  <Story name="Warning">
+    {{ 
+      components: { CBButton },                     
+      template: '<CBButton type="warning">Warning</CBButton>'
     }}
   </Story>
   <Story name="Danger">
-      <CBButton>Danger</CBButton>
+    {{ 
+      components: { CBButton },                     
+      template: '<CBButton type="danger">Danger</CBButton>'
+    }}
+  </Story>
+  <Story name="EXAMPLE">
+     {{
+       components: { Example },
+       template: `<Example>Example.vue</Example>`
+     }}
   </Story>
 </Preview>
